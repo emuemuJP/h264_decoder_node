@@ -25,8 +25,8 @@ public:
     output_topic_ = this->get_parameter("output_topic").as_string();
     frame_id_ = this->get_parameter("frame_id").as_string();
 
-    rclcpp::QoS sub_qos(1);
-    sub_qos.best_effort();
+    rclcpp::QoS sub_qos(10);
+    sub_qos.reliable();
     sub_qos.durability_volatile();
 
     rclcpp::QoS pub_qos(1);
